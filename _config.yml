@@ -1,7 +1,7 @@
 name: Run Dreamer
 favicon: null
-layout_spectrum: 0.896078577497974
-typography_spectrum: 0.02905294788070023
+layout_spectrum: 1
+typography_spectrum: 0.81132
 cta:
   domain: null
   bucket: null
@@ -16,12 +16,12 @@ opengraph:
   appId: null
 color:
   brandColors:
-    - '#F7EDF0'
-    - '#F4CBC6'
-    - '#F4AFAB'
-    - '#F4EEA9'
-    - '#F4F482'
-  brandStrength: 0.13047043653205037
+    - '#000000'
+    - '#ffffff'
+    - '#565756'
+    - '#00dbfb'
+    - '#ff17f5'
+  brandStrength: 0
   lightness: 0.9520528928842396
   saturation: 0.6930047031491995
   rhythmicContrast: 0.3295336945448071
