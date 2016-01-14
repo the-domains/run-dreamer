@@ -1,4 +1,4 @@
-<!DOCTYPE HTML><html class="exporting wf-loading"><head><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/><title>Run Dreamer</title><link href="rss.xml" title="Run Dreamer feed" rel="alternate" type="application/rss+xml"/><meta name="generator" content="The Grid taylor/0.16.25"><meta name="the-grid-solution" content="036c52dd-6829-4971-8d03-95f800240f54"><style href="./css/scale/mini.css" media="(max-width: 19.9376em)" rel="stylesheet">@media (max-width: 15.625em){html{font-size:3.09375em !important}}
+<!DOCTYPE HTML><html class="exporting wf-loading"><head><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/><title>Run Dreamer</title><link href="rss.xml" title="Run Dreamer feed" rel="alternate" type="application/rss+xml"/><meta name="generator" content="The Grid taylor/0.17.3"><meta name="the-grid-solution" content="585c12cd-5efe-4fe8-810e-20d456be5d2e"><style href="./css/scale/mini.css" media="(max-width: 19.9376em)" rel="stylesheet">@media (max-width: 15.625em){html{font-size:3.09375em !important}}
 @media (min-width: 15.6875em)and (max-width: 15.75em){	html{font-size:3.28125em !important}}
 @media (min-width: 15.8125em)and (max-width: 16.25em){	html{font-size:3.375em !important}}
 @media (min-width: 16.3125em)and (max-width: 16.6875em){html{font-size:3.46875em !important}}
@@ -202,6 +202,14 @@ body {
 }
 .stack {
   z-index: 1;
+  transition: transform 0.3s ease-out;
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+}
+.group,
+.aside,
+.decoration {
+  transition: transform 0.3s ease-out;
+  -webkit-transition: -webkit-transform 0.3s ease-out;
 }
 picture {
   display: inline-block;
@@ -250,6 +258,9 @@ a:active {
   transition: color 0.1s ease-in, background-color 0.1s ease-out;
   -webkit-transition: color 0.1s ease-in, background-color 0.1s ease-out;
 }
+a.aside {
+  display: inline-block;
+}
 html.exporting a {
   transition: none;
 }
@@ -259,11 +270,21 @@ html.exporting a {
 .media > a {
   display: inline-block;
 }
+.media iframe {
+  transition: 0.3s opacity ease-in;
+  -webkit-transition: 0.3s opacity ease-in;
+}
 h1 a,
 h2 a,
 h3 a {
   font-weight: inherit;
   letter-spacing: inherit;
+}
+a {
+  -webkit-box-decoration-break: clone;
+  -ms-box-decoration-break: clone;
+  -moz-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 .text-decoration {
   -webkit-box-decoration-break: clone;
@@ -277,36 +298,50 @@ h3 a {
   margin-left: 1.5em;
 }
 .decoration {
-  position: relative;
   pointer-events: none;
+}
+.svg {
+  position: relative;
   background-color: currentColor;
 }
-.decoration > svg {
+.svg > svg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
-.decoration.connector > svg {
+.svg.connector > svg {
   width: 109%;
   height: 109%;
   margin-left: -2%;
 }
-.decoration path,
-.decoration ellipse,
-.decoration rect,
-.decoration polygon,
-.decoration circle {
+.svg path,
+.svg ellipse,
+.svg rect,
+.svg polygon,
+.svg circle {
   fill: currentColor;
 }
-.decoration mpath,
-.decoration line,
-.decoration polyline {
+.svg mpath,
+.svg line,
+.svg polyline {
   stroke: currentColor;
 }
-.svg.decoration {
+.svg {
   background-color: transparent;
+}
+.revealed .play.svg:after {
+  display: block;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  margin-top: -20px;
+  margin-left: -20px;
+  background-color: currentColor;
+  content: "";
 }
 .colors-style-aside-border .publisher,
 .colors-style-aside-border .author {
@@ -443,7 +478,7 @@ ul {
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual > .text.paragraph a { color: rgb(85, 194, 210); text-shadow: rgb(0, 219, 251) 0px 1px 0px; }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual > .text.paragraph a:hover { color: rgb(144, 142, 142); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual .text-decoration { background-color: rgba(243, 241, 241, 0.701961); }
-#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .media.cover { background-image: linear-gradient(rgb(249, 248, 248), rgb(0, 219, 251)); }
+#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .media.cover { background-image: linear-gradient(rgb(0, 88, 102), rgb(0, 219, 251)); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 a { color: rgb(9, 140, 161); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 a:hover { color: rgb(0, 0, 0); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 a:active { color: rgb(0, 0, 0); }
@@ -540,7 +575,7 @@ display: none;
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual > .text.paragraph a { color: rgb(85, 194, 210); text-shadow: rgb(0, 219, 251) 0px 1px 0px; }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual > .text.paragraph a:hover { color: rgb(144, 142, 142); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual .text-decoration { background-color: rgba(243, 241, 241, 0.701961); }
-#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .media.cover { background-image: linear-gradient(rgb(249, 248, 248), rgb(0, 219, 251)); }
+#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .media.cover { background-image: linear-gradient(rgb(0, 88, 102), rgb(0, 219, 251)); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 a { color: rgb(9, 140, 161); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 a:hover { color: rgb(0, 0, 0); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 a:active { color: rgb(0, 0, 0); }
@@ -637,7 +672,7 @@ display: none;
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual > .text.paragraph a { color: rgb(85, 194, 210); text-shadow: rgb(0, 219, 251) 0px 1px 0px; }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual > .text.paragraph a:hover { color: rgb(144, 142, 142); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual .text-decoration { background-color: rgba(243, 241, 241, 0.701961); }
-#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .media.cover { background-image: linear-gradient(rgb(249, 248, 248), rgb(0, 219, 251)); }
+#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .media.cover { background-image: linear-gradient(rgb(0, 88, 102), rgb(0, 219, 251)); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 a { color: rgb(9, 140, 161); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 a:hover { color: rgb(0, 0, 0); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 a:active { color: rgb(0, 0, 0); }
@@ -649,7 +684,7 @@ display: none;
 #u-cd565c09-8aed-43f1-9bce-c20d140c1e9b#u-cd565c09-8aed-43f1-9bce-c20d140c1e9b:before{}
 #u-cd565c09-8aed-43f1-9bce-c20d140c1e9b >.group.figure { text-align: left; }
 #u-cd565c09-8aed-43f1-9bce-c20d140c1e9b-g-figure#u-cd565c09-8aed-43f1-9bce-c20d140c1e9b-g-figure{font-size: 0.164rem; line-height: 0.244rem; height: 0.264rem; width: 2.404rem; position: absolute; top: 0.604rem; left: 0.484rem;}
-#u-cd565c09-8aed-43f1-9bce-c20d140c1e9b-g-figure-t-paragraph#u-cd565c09-8aed-43f1-9bce-c20d140c1e9b-g-figure-t-paragraph{font-size: 0.164rem; margin-right: -0.084rem; margin-left: -0.084rem; padding-left: 0.084rem; padding-right: 0.084rem; line-height: 0.244rem; width: 2.404rem; position: absolute; top: 0rem; left: 0rem;}
+#u-cd565c09-8aed-43f1-9bce-c20d140c1e9b-g-figure-t-paragraph#u-cd565c09-8aed-43f1-9bce-c20d140c1e9b-g-figure-t-paragraph{font-size: 0.164rem; margin-right: -0.084rem; margin-left: -0.084rem; padding-left: 0.084rem; padding-right: 0.084rem; line-height: 0.244rem; width: 2.404rem; position: absolute; top: 0rem; left: 0.0149rem;}
 #u-cd565c09-8aed-43f1-9bce-c20d140c1e9b#u-cd565c09-8aed-43f1-9bce-c20d140c1e9b .group.figure > .text.paragraph { color: rgb(0, 0, 0); }
 #u-cd565c09-8aed-43f1-9bce-c20d140c1e9b#u-cd565c09-8aed-43f1-9bce-c20d140c1e9b .group.figure > .text.paragraph a { color: rgb(85, 195, 210); }
 #u-cd565c09-8aed-43f1-9bce-c20d140c1e9b#u-cd565c09-8aed-43f1-9bce-c20d140c1e9b .group.figure > .text.paragraph a:hover { color: rgb(142, 144, 142); }
@@ -725,14 +760,14 @@ display: none;
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 >.group.textual { text-align: center; }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 >.group.textual >.text.paragraph { }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual{opacity: 1; font-size: 0.164rem; line-height: 0.244rem; height: 3.804rem; width: 3.804rem; position: absolute; top: 0rem; left: 0rem;}
-#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual-t-paragraph#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual-t-paragraph{font-size: 0.244rem; padding-left: 0.084rem; padding-right: 0.084rem; line-height: 0.364rem; width: 2.364rem; position: absolute; top: 2.344rem; left: 0.724rem;}
+#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual-t-paragraph#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual-t-paragraph{font-size: 0.244rem; padding-left: 0.084rem; padding-right: 0.084rem; line-height: 0.364rem; width: 2.524rem; position: absolute; top: 2.344rem; left: 0.644rem;}
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-m-cover#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-m-cover{overflow: hidden; opacity: 1; width: 3.844rem; height: 3.844rem; position: absolute; left: -0.024rem; top: -0.024rem;}
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-m-cover-img#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-m-cover-img{height: 3.844rem; width: 3.844rem; position: absolute; top: 0rem; left: 0rem;}
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual > .text.paragraph { color: rgb(0, 0, 0); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual > .text.paragraph a { color: rgb(85, 194, 210); text-shadow: rgb(0, 219, 251) 0px 1px 0px; }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual > .text.paragraph a:hover { color: rgb(144, 142, 142); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual .text-decoration { background-color: rgba(243, 241, 241, 0.701961); }
-#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .media.cover { background-image: linear-gradient(rgb(249, 248, 248), rgb(0, 219, 251)); }
+#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .media.cover { background-image: linear-gradient(rgb(0, 88, 102), rgb(0, 219, 251)); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 a { color: rgb(9, 140, 161); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 a:hover { color: rgb(0, 0, 0); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 a:active { color: rgb(0, 0, 0); }
@@ -820,14 +855,14 @@ display: none;
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 >.group.textual { text-align: center; }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 >.group.textual >.text.paragraph { }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual{opacity: 1; font-size: 0.204rem; line-height: 0.304rem; height: 3.804rem; width: 3.804rem; position: absolute; top: 0rem; left: 0rem;}
-#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual-t-paragraph#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual-t-paragraph{font-size: 0.304rem; padding-left: 0.104rem; padding-right: 0.104rem; line-height: 0.454rem; width: 2.704rem; position: absolute; top: 1.994rem; left: 0.564rem;}
+#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual-t-paragraph#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual-t-paragraph{font-size: 0.304rem; padding-left: 0.104rem; padding-right: 0.104rem; line-height: 0.454rem; width: 3.154rem; position: absolute; top: 1.994rem; left: 0.334rem;}
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-m-cover#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-m-cover{overflow: hidden; opacity: 1; width: 3.844rem; height: 3.844rem; position: absolute; left: -0.024rem; top: -0.024rem;}
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-m-cover-img#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-m-cover-img{height: 3.844rem; width: 3.844rem; position: absolute; top: 0rem; left: 0rem;}
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual > .text.paragraph { color: rgb(0, 0, 0); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual > .text.paragraph a { color: rgb(85, 194, 210); text-shadow: rgb(0, 219, 251) 0px 1px 0px; }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual > .text.paragraph a:hover { color: rgb(144, 142, 142); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual .text-decoration { background-color: rgba(243, 241, 241, 0.701961); }
-#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .media.cover { background-image: linear-gradient(rgb(249, 248, 248), rgb(0, 219, 251)); }
+#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .media.cover { background-image: linear-gradient(rgb(0, 88, 102), rgb(0, 219, 251)); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 a { color: rgb(9, 140, 161); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 a:hover { color: rgb(0, 0, 0); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 a:active { color: rgb(0, 0, 0); }
@@ -915,14 +950,14 @@ display: none;
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 >.group.textual { text-align: center; }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 >.group.textual >.text.paragraph { }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual{opacity: 1; font-size: 0.154rem; line-height: 0.234rem; height: 3.804rem; width: 3.804rem; position: absolute; top: 0rem; left: 0rem;}
-#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual-t-paragraph#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual-t-paragraph{font-size: 0.234rem; padding-left: 0.084rem; padding-right: 0.084rem; line-height: 0.344rem; width: 2.704rem; position: absolute; top: 2.544rem; left: 0.554rem;}
+#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual-t-paragraph#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual-t-paragraph{font-size: 0.234rem; padding-left: 0.084rem; padding-right: 0.084rem; line-height: 0.344rem; width: 3.154rem; position: absolute; top: 2.544rem; left: 0.334rem;}
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-m-cover#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-m-cover{overflow: hidden; opacity: 1; width: 3.844rem; height: 3.844rem; position: absolute; left: -0.024rem; top: -0.024rem;}
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-m-cover-img#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-m-cover-img{height: 3.844rem; width: 3.844rem; position: absolute; top: 0rem; left: 0rem;}
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual > .text.paragraph { color: rgb(0, 0, 0); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual > .text.paragraph a { color: rgb(85, 194, 210); text-shadow: rgb(0, 219, 251) 0px 1px 0px; }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual > .text.paragraph a:hover { color: rgb(144, 142, 142); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .group.textual .text-decoration { background-color: rgba(243, 241, 241, 0.701961); }
-#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .media.cover { background-image: linear-gradient(rgb(249, 248, 248), rgb(0, 219, 251)); }
+#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 .media.cover { background-image: linear-gradient(rgb(0, 88, 102), rgb(0, 219, 251)); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 a { color: rgb(9, 140, 161); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 a:hover { color: rgb(0, 0, 0); }
 #u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9#u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9 a:active { color: rgb(0, 0, 0); }
@@ -985,7 +1020,7 @@ wbr.w1800{ display: block }
  #u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-desktop-l-one-4 {
 display: none;
 }
-}</style></head><body><div class="layout-system rust mobile" id="page-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9"><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-mobile-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-mobile-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="opener" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_short_paragraph w_short_text media_lt_narrow media_lt_half media_lt_wide media_lt_full media_square crop_true layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-mobile-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_medias w_texts layout one i first_layout last_layout opener layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-mobile-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="feed" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_trailer w_short_paragraph w_short_text layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-mobile-l-one-3"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts layout one i first_layout feed layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-mobile-l-one-3-l-one"></div><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts layout one i last_layout feed layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-mobile-l-one-3-l-one-2"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-mobile-l-one-4"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-mobile-l-one-4-l-one"></div><style id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-color">body{background-color: rgba(0, 217, 250, 1)}</style></section><article subject="panel" class="col-1 export-linebreaks not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_center uninverted vertical collapsed full line_padding_aside_inside text_width_full group_h_align_none text_align_center flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_small panel stack heading i first_panel last_panel w_headline w_title w_decoration w_short_headline w_short_title stack heading" itemid="u-page-nav" itemtype="nav" diff_index="2" index="heading" kind="stack" score="1.875" missed="0.125" tag="article" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-nav"><div kind="group" index="heading" class="group heading group heading" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-nav-g-heading"><h1 kind="title" index="headline" class="short short_headline short_title title headline vfld-leader vfld-trailer title headline" specificity="0.25" itemprop="title" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-nav-g-heading-t-headline"><a class="text-decoration" href="index.html" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-nav-g-heading-t-headline-a">Run Dreamer</a></h1></div></article><article subject="feature" class="col-1 export-linebreaks not_decorated color_adjust_overlay color_styles_sheer_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_small stack_h_outset_none stack_h_inset_small stack_h_align_stretch uninverted vertical fullscreen_first full aspect_natural line_padding_aside_inside text_width_normal group_h_align_none text_align_center flow_unreversed group_v_outset_none group_v_inset_small group_h_outset_none group_h_inset_small flow_vertical font_size_large feature stack bg_textual i first_feature last_feature textual w_cover w_media w_paragraph w_text w_decoration w_short_paragraph w_short_text media_lt_narrow media_lt_half media_lt_wide media_lt_full media_square crop_true stack bg_textual" itemid="9fa27b5e-76c0-4320-b47e-9ebe9da56cb9" itemtype="intro" diff_index="6" index="bg_textual" kind="stack" score="3.875" missed="0.625" tag="article" id="u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9"><div kind="group" index="textual" class="group textual group textual" id="u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual"><div kind="text" index="paragraph" class="text-decoration short short_paragraph short_text text paragraph vfld-leader vfld-trailer text paragraph" itemprop="text" id="u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual-t-paragraph"><p><span class="first-letter">;</span>lskjdf ;lkasjd <wbr class="w1799"></wbr>f;lksdjf<wbr class="w961"></wbr> sdf </p></div></div><a kind="media" index="cover" itemprop="cover" class="media cover media cover" max-width="128" max-height="128" href="9fa27b5e-76c0-4320-b47e-9ebe9da56cb9/" id="u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-m-cover"><picture id="u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-m-cover-img" class=""><!--[if IE 9]><video style="display: none;"><![endif]--><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128 2x" media="(min-width: 1441px) and (min-width: 1441px) and (max-width: 1799px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128 2x" media="(min-width: 1441px) and (min-width: 1800px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128 2x" media="(min-width: 721px) and (min-width: 721px) and (max-width: 960px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128 2x" media="(min-width: 721px) and (min-width: 961px) and (max-width: 1440px)" /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128 2x" media="(min-width: 1px) and (max-width: 480px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128 2x" media="(min-width: 1px) and (min-width: 481px) and (max-width: 720px)" /><!--[if IE 9]></video><![endif]--><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="  /></picture></a></article><article subject="stack" class="col-1 export-linebreaks not_decorated color_adjust_none color_styles_high_text_emphasis_no_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_xsmall stack_h_outset_none stack_h_inset_xsmall stack_h_align_center uninverted vertical collapsed full line_padding_aside_inside text_width_wider group_h_align_none text_align_left flow_unreversed group_v_outset_none group_v_inset_small group_h_outset_none group_h_inset_small flow_vertical font_size_large stack figure i first_stack w_paragraph w_text w_decoration w_short_paragraph w_short_text stack figure" itemid="cd565c09-8aed-43f1-9bce-c20d140c1e9b" itemtype="article" diff_index="6" index="figure" kind="stack" score="-1.625" missed="0.125" tag="article" id="u-cd565c09-8aed-43f1-9bce-c20d140c1e9b"><div kind="group" index="figure" class="group figure group figure" id="u-cd565c09-8aed-43f1-9bce-c20d140c1e9b-g-figure"><div kind="text" index="paragraph" class="text-decoration short short_paragraph short_text text paragraph vfld-leader vfld-trailer text paragraph" specificity="0.25" itemprop="text" id="u-cd565c09-8aed-43f1-9bce-c20d140c1e9b-g-figure-t-paragraph"><p><span class="first-letter">;</span>oisjaf ;laskdjf ;lskj ;lsdkjf ;aslkdfj</p></div></div></article><article subject="stack" class="col-1 export-linebreaks not_decorated color_adjust_none color_styles_high_text_emphasis_no_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_xsmall stack_h_outset_none stack_h_inset_xsmall stack_h_align_center uninverted vertical collapsed full line_padding_aside_inside text_width_wider group_h_align_none text_align_left flow_unreversed group_v_outset_none group_v_inset_small group_h_outset_none group_h_inset_small flow_vertical font_size_large stack figure i last_stack w_paragraph w_text w_decoration w_short_paragraph w_short_text stack figure" itemid="8a4c0e86-5c84-4fd9-a738-156713b035e4" itemtype="article" diff_index="6" index="figure" kind="stack" score="-1.625" missed="0.125" tag="article" id="u-8a4c0e86-5c84-4fd9-a738-156713b035e4"><div kind="group" index="figure" class="group figure group figure" id="u-8a4c0e86-5c84-4fd9-a738-156713b035e4-g-figure"><div kind="text" index="paragraph" class="text-decoration short short_paragraph short_text text paragraph vfld-leader vfld-trailer text paragraph" specificity="0.25" itemprop="text" id="u-8a4c0e86-5c84-4fd9-a738-156713b035e4-g-figure-t-paragraph"><p><span class="first-letter">R</span>uni adlfkajds ;lkfjas ;dlkf j;sdlkfj <wbr class="w960"></wbr>sdlkfj ;saldkfj sd</p></div></div></article><article subject="panel" class="col-1 export-linebreaks not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_center uninverted vertical collapsed full line_padding_aside_inside text_width_full group_h_align_none text_align_center flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_small panel stack heading i first_panel last_panel w_headline w_title w_decoration w_short_headline w_short_title stack heading" itemid="u-page-alternate" itemtype="alternate" diff_index="2" index="heading" kind="stack" score="1.875" missed="0.125" tag="article" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-alternate"><div kind="group" index="heading" class="group heading group heading" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-alternate-g-heading"><h1 kind="title" index="headline" class="short short_headline short_title title headline vfld-leader vfld-trailer title headline" specificity="0.25" itemprop="title" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-alternate-g-heading-t-headline"><a class="text-decoration" href="rss.xml" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-alternate-g-heading-t-headline-a">Run Dreamer feed</a></h1></div></article><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-desktop-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-desktop-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="opener" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_short_paragraph w_short_text media_lt_narrow media_lt_half media_lt_wide media_lt_full media_square crop_true layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-desktop-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_medias w_texts layout one i first_layout last_layout opener layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-desktop-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="feed" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_trailer w_short_paragraph w_short_text layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-desktop-l-one-3"><div kind="layout" style="position: relative" sequence="two" diff_index="1" index="two" class="colors-use-local w_texts layout two i first_layout last_layout feed layout two" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-desktop-l-one-3-l-two"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-desktop-l-one-4"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-desktop-l-one-4-l-one"></div><style id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-color">body{background-color: rgba(248, 249, 248, 1)}</style></section><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-cinema-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-cinema-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="opener" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_short_paragraph w_short_text media_lt_narrow media_lt_half media_lt_wide media_lt_full media_square crop_true layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-cinema-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_medias w_texts layout one i first_layout last_layout opener layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-cinema-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="feed" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_trailer w_short_paragraph w_short_text layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-cinema-l-one-3"><div kind="layout" style="position: relative" sequence="two" diff_index="1" index="two" class="colors-use-local w_texts layout two i first_layout last_layout feed layout two" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-cinema-l-one-3-l-two"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-cinema-l-one-4"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-cinema-l-one-4-l-one"></div><style id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-color">body{background-color: rgba(248, 249, 248, 1)}</style></section></div><script href="./client.js">(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+}</style></head><body><div class="layout-system rust mobile" id="page-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9"><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-mobile-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-mobile-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="opener" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_short_paragraph w_short_text media_lt_narrow media_lt_half media_lt_wide media_lt_full media_square crop_true layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-mobile-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_medias w_texts layout one i first_layout last_layout opener layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-mobile-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="feed" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_trailer w_short_paragraph w_short_text layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-mobile-l-one-3"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts layout one i first_layout feed layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-mobile-l-one-3-l-one"></div><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_texts layout one i last_layout feed layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-mobile-l-one-3-l-one-2"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-mobile-l-one-4"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-mobile-l-one-4-l-one"></div><style id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-color">body{background-color: rgba(0, 217, 250, 1)}</style></section><article subject="panel" class="col-1 export-linebreaks not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_center uninverted vertical collapsed full line_padding_aside_inside text_width_full group_h_align_none text_align_center flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_small panel stack heading i first_panel last_panel w_headline w_title w_decoration w_short_headline w_short_title stack heading" itemid="u-page-nav" itemtype="nav" diff_index="2" index="heading" kind="stack" score="1.875" missed="0.125" tag="article" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-nav"><div kind="group" index="heading" class="group heading group heading" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-nav-g-heading"><h1 kind="title" index="headline" class="short short_headline short_title title headline vfld-leader vfld-trailer title headline" specificity="0.25" itemprop="title" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-nav-g-heading-t-headline"><a class="text-decoration" href="index.html" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-nav-g-heading-t-headline-a">Run Dreamer</a></h1></div></article><article subject="feature" class="col-1 export-linebreaks not_decorated color_adjust_overlay color_styles_sheer_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_small stack_h_outset_none stack_h_inset_small stack_h_align_stretch uninverted vertical fullscreen_first full aspect_natural line_padding_aside_inside text_width_normal group_h_align_none text_align_center flow_unreversed group_v_outset_none group_v_inset_small group_h_outset_none group_h_inset_small flow_vertical font_size_large feature stack bg_textual i first_feature last_feature textual w_cover w_media w_paragraph w_text w_decoration w_short_paragraph w_short_text media_lt_narrow media_lt_half media_lt_wide media_lt_full media_square crop_true stack bg_textual" itemid="9fa27b5e-76c0-4320-b47e-9ebe9da56cb9" itemtype="intro" diff_index="7" index="bg_textual" kind="stack" score="3.875" missed="0.625" tag="article" id="u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9"><div kind="group" index="textual" class="group textual group textual" id="u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual"><div kind="text" index="paragraph" class="text-decoration short short_paragraph short_text text paragraph vfld-leader vfld-trailer text paragraph" itemprop="text" id="u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-g-textual-t-paragraph"><p><span class="first-letter">;</span>lskjdf ;lkasjd f;lksdjf<wbr class="w961 w1799"></wbr> sdf </p></div></div><a kind="media" index="cover" itemprop="cover" class="media cover media cover" max-width="128" max-height="128" href="9fa27b5e-76c0-4320-b47e-9ebe9da56cb9/" id="u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-m-cover"><picture id="u-9fa27b5e-76c0-4320-b47e-9ebe9da56cb9-m-cover-img" class=""><!--[if IE 9]><video style="display: none;"><![endif]--><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128 2x" media="(min-width: 1441px) and (min-width: 1441px) and (max-width: 1799px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128 2x" media="(min-width: 1441px) and (min-width: 1800px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128 2x" media="(min-width: 721px) and (min-width: 721px) and (max-width: 960px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128 2x" media="(min-width: 721px) and (min-width: 961px) and (max-width: 1440px)" /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128 2x" media="(min-width: 1px) and (max-width: 480px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/a122ff2afcf7d39bb1fa27726840790d/gradientmap.jpg?color1=%231C1717&color2=%23372F2F&color3=%236E5E5E&color4=%2366EBFF&color5=%23CCF8FF&height=128&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1875136a6bcf80d0f7b77774d61b4710e9a86667.jpg&srgb=True&stop1=0.1&stop2=0.3&stop3=0.5&stop4=0.7&stop5=0.9&width=128 2x" media="(min-width: 1px) and (min-width: 481px) and (max-width: 720px)" /><!--[if IE 9]></video><![endif]--><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="  /></picture></a></article><article subject="stack" class="col-1 export-linebreaks not_decorated color_adjust_none color_styles_high_text_emphasis_no_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_xsmall stack_h_outset_none stack_h_inset_xsmall stack_h_align_center uninverted vertical collapsed full line_padding_aside_inside text_width_wider group_h_align_none text_align_left flow_unreversed group_v_outset_none group_v_inset_small group_h_outset_none group_h_inset_small flow_vertical font_size_large stack figure i first_stack w_paragraph w_text w_decoration w_short_paragraph w_short_text stack figure" itemid="cd565c09-8aed-43f1-9bce-c20d140c1e9b" itemtype="article" diff_index="6" index="figure" kind="stack" score="-0.024999999999999994" missed="0.125" tag="article" id="u-cd565c09-8aed-43f1-9bce-c20d140c1e9b"><div kind="group" index="figure" class="group figure group figure" id="u-cd565c09-8aed-43f1-9bce-c20d140c1e9b-g-figure"><div kind="text" index="paragraph" class="text-decoration short short_paragraph short_text text paragraph vfld-leader vfld-trailer text paragraph" specificity="0.25" itemprop="text" id="u-cd565c09-8aed-43f1-9bce-c20d140c1e9b-g-figure-t-paragraph"><p><span class="first-letter">;</span>oisjaf ;laskdjf ;lskj ;lsdkjf ;aslkdfj</p></div></div></article><article subject="stack" class="col-1 export-linebreaks not_decorated color_adjust_none color_styles_high_text_emphasis_no_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_xsmall stack_h_outset_none stack_h_inset_xsmall stack_h_align_center uninverted vertical collapsed full line_padding_aside_inside text_width_wider group_h_align_none text_align_left flow_unreversed group_v_outset_none group_v_inset_small group_h_outset_none group_h_inset_small flow_vertical font_size_large stack figure i last_stack w_paragraph w_text w_decoration w_short_paragraph w_short_text stack figure" itemid="8a4c0e86-5c84-4fd9-a738-156713b035e4" itemtype="article" diff_index="6" index="figure" kind="stack" score="-0.024999999999999994" missed="0.125" tag="article" id="u-8a4c0e86-5c84-4fd9-a738-156713b035e4"><div kind="group" index="figure" class="group figure group figure" id="u-8a4c0e86-5c84-4fd9-a738-156713b035e4-g-figure"><div kind="text" index="paragraph" class="text-decoration short short_paragraph short_text text paragraph vfld-leader vfld-trailer text paragraph" specificity="0.25" itemprop="text" id="u-8a4c0e86-5c84-4fd9-a738-156713b035e4-g-figure-t-paragraph"><p><span class="first-letter">R</span>uni adlfkajds ;lkfjas ;dlkf j;sdlkfj <wbr class="w960"></wbr>sdlkfj ;saldkfj sd</p></div></div></article><article subject="panel" class="col-1 export-linebreaks not_decorated color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_center uninverted vertical collapsed full line_padding_aside_inside text_width_full group_h_align_none text_align_center flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall flow_vertical font_size_small panel stack heading i first_panel last_panel w_headline w_title w_decoration w_short_headline w_short_title stack heading" itemid="u-page-alternate" itemtype="alternate" diff_index="2" index="heading" kind="stack" score="1.875" missed="0.125" tag="article" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-alternate"><div kind="group" index="heading" class="group heading group heading" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-alternate-g-heading"><h1 kind="title" index="headline" class="short short_headline short_title title headline vfld-leader vfld-trailer title headline" specificity="0.25" itemprop="title" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-alternate-g-heading-t-headline"><a class="text-decoration" href="rss.xml" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-alternate-g-heading-t-headline-a">Run Dreamer feed</a></h1></div></article><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-desktop-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-desktop-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="opener" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_short_paragraph w_short_text media_lt_narrow media_lt_half media_lt_wide media_lt_full media_square crop_true layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-desktop-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_medias w_texts layout one i first_layout last_layout opener layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-desktop-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="feed" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_trailer w_short_paragraph w_short_text layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-desktop-l-one-3"><div kind="layout" style="position: relative" sequence="two" diff_index="1" index="two" class="colors-use-local w_texts layout two i first_layout last_layout feed layout two" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-desktop-l-one-3-l-two"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-desktop-l-one-4"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-desktop-l-one-4-l-one"></div><style id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-color">body{background-color: rgba(248, 249, 248, 1)}</style></section><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-cinema-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-cinema-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="opener" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_short_paragraph w_short_text media_lt_narrow media_lt_half media_lt_wide media_lt_full media_square crop_true layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-cinema-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_medias w_texts layout one i first_layout last_layout opener layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-cinema-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="feed" diff_index="0" index="one" class="layout one i w_paragraph w_text w_separator w_decoration w_leader w_trailer w_short_paragraph w_short_text layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-cinema-l-one-3"><div kind="layout" style="position: relative" sequence="two" diff_index="1" index="two" class="colors-use-local w_texts layout two i first_layout last_layout feed layout two" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-cinema-l-one-3-l-two"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-cinema-l-one-4"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-cinema-l-one-4-l-one"></div><style id="u-d2eada4a-0a6e-4737-a7e1-55afdfdcd6c9-color">body{background-color: rgba(248, 249, 248, 1)}</style></section></div><script href="./client.js">(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /*! Hammer.JS - v1.1.3 - 2014-05-20
  * http://eightmedia.github.io/hammer.js
  *
@@ -1512,9 +1547,11 @@ global.Hamburger = require('./hamburger');
 
 global.Highlighter = require('./highlighter');
 
+global.Player = require('./player');
+
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./animator":3,"./hamburger":4,"./highlighter":5,"./paginator":7,"hammerjs/hammer.min.js":1,"picturefill/dist/picturefill.min.js":2}],7:[function(require,module,exports){
+},{"./animator":3,"./hamburger":4,"./highlighter":5,"./paginator":7,"./player":8,"hammerjs/hammer.min.js":1,"picturefill/dist/picturefill.min.js":2}],7:[function(require,module,exports){
 var appendPage, mainpage, page, ref, ref1, urls;
 
 page = require('./reflow');
@@ -1615,7 +1652,192 @@ module.exports = function() {
 };
 
 
-},{"./reflow":8}],8:[function(require,module,exports){
+},{"./reflow":9}],8:[function(require,module,exports){
+var Player, Youtube, iframe, revealed, rgb2hex;
+
+iframe = null;
+
+Youtube = null;
+
+Player = function(id, src, width, height, color, bg) {
+  if (src.indexOf('youtube') > -1) {
+    src += '&color=white&theme=light&modestbranding=1';
+  }
+  src = src.replace('COLOR', color).replace('BG', bg);
+  if (location.protocol !== 'https:') {
+    src = src.replace('https:', 'http:');
+  }
+  iframe = document.createElement('iframe');
+  iframe.id = id;
+  iframe.setAttribute('allowfullscreen', '');
+  iframe.src = src;
+  iframe.width = width;
+  iframe.height = height;
+  iframe.style.width = '100%';
+  iframe.style.height = '100%';
+  iframe.style.left = 0;
+  iframe.style.right = 0;
+  iframe.style.position = 'absolute';
+  iframe.style.opacity = 0.2;
+  iframe.onload = function() {
+    return iframe.style.opacity = 1;
+  };
+  return iframe;
+};
+
+revealed = null;
+
+Player.reveal = function(iframe) {
+  var diff, i, left, len, parent, play, ref, ref1, sibling, target, top, translateX, translateY;
+  while (target = (target || iframe).parentNode) {
+    if ((ref = target.classList) != null ? ref.contains('media') : void 0) {
+      if (target.parentNode.classList.contains('group')) {
+        parent = target.parentNode;
+      } else {
+        parent = target;
+      }
+      revealed = iframe;
+      play = parent.getElementsByClassName('play')[0];
+      left = target.offsetWidth - play.offsetLeft - play.offsetWidth;
+      top = -play.offsetTop;
+      play.style.webkitTransformOrigin = 'top right';
+      play.style.webkitTransform = 'translateX(' + left + 'px) translateY(' + top + 'px) scale(0.5)';
+      target.classList.add('revealed');
+      ref1 = parent.parentNode.childNodes;
+      for (i = 0, len = ref1.length; i < len; i++) {
+        sibling = ref1[i];
+        if (sibling.nodeType === 1 && sibling !== parent) {
+          translateX = translateY = null;
+          if ((diff = sibling.offsetLeft + sibling.offsetWidth - parent.offsetLeft) > 2 && parent.offsetLeft >= sibling.offsetLeft) {
+            translateX = -diff;
+          }
+          if ((diff = target.offsetLeft + target.offsetWidth - sibling.offsetLeft) > 2 && parent.offsetLeft <= sibling.offsetLeft) {
+            if (!translateX || Math.abs(diff) < Math.abs(translateX)) {
+              translateX = diff;
+            }
+          }
+          if ((diff = sibling.offsetTop + sibling.offsetHeight - parent.offsetTop) > 2 && parent.offsetTop >= sibling.offsetTop) {
+            translateY = -diff;
+          }
+          if ((diff = target.offsetTop + target.offsetHeight - sibling.offsetTop) > 2 && parent.offsetTop <= sibling.offsetTop) {
+            if (!translateY || Math.abs(diff) < Math.abs(translateY)) {
+              translateY = diff;
+            }
+          }
+          if (Math.abs(translateX) > Math.abs(translateY)) {
+            sibling.style.webkitTransform = 'translateY(' + translateY + 'px)';
+          } else {
+            sibling.style.webkitTransform = 'translateX(' + translateX + 'px)';
+          }
+          console.log(translateX, translateY, sibling);
+        }
+      }
+    }
+  }
+};
+
+Player.hide = function(iframe) {
+  var i, len, parent, play, ref, ref1, sibling;
+  while (parent = (parent || iframe).parentNode) {
+    if ((ref = parent.classList) != null ? ref.contains('revealed') : void 0) {
+      parent.classList.remove('revealed');
+      if (parent.parentNode.classList.contains('group')) {
+        parent = parent.parentNode;
+      }
+      play = parent.getElementsByClassName('play')[0];
+      play.style.webkitTransform = '';
+      ref1 = parent.parentNode.childNodes;
+      for (i = 0, len = ref1.length; i < len; i++) {
+        sibling = ref1[i];
+        sibling.style.webkitTransform = '';
+      }
+    }
+  }
+  return revealed = null;
+};
+
+window.addEventListener('resize', function() {
+  return setTimeout(function() {
+    return requestAnimationFrame(function() {
+      if (revealed) {
+        if (revealed.offsetWidth) {
+          return Player.reveal(revealed);
+        } else {
+          return Player.stop(revealed);
+        }
+      }
+    });
+  }, 10);
+});
+
+Player.stop = function(iframe) {
+  var old;
+  old = iframe;
+  iframe.style.opacity = 0;
+  setTimeout(function() {
+    var ref;
+    return (ref = old.parentNode) != null ? ref.removeChild(old) : void 0;
+  }, 300);
+  Player.hide(iframe);
+  return iframe = null;
+};
+
+document.addEventListener('click', function(e) {
+  var bg, color, header, parent, play, ref, ref1, results, styles, target;
+  target = e.target;
+  results = [];
+  while (target) {
+    if ((ref = target.classList) != null ? ref.contains('media') : void 0) {
+      if (play = target.getElementsByClassName('play')[0]) {
+        if ((iframe != null ? iframe.parentNode : void 0) === target) {
+          Player.stop(iframe);
+        } else {
+          if (iframe) {
+            Player.stop(iframe);
+          }
+          color = bg = null;
+          header = (ref1 = target.parentNode.parentNode.getElementsByClassName('title')[0]) != null ? ref1.firstChild : void 0;
+          parent = header || play;
+          while (parent) {
+            if (parent.nodeType === 1) {
+              styles = window.getComputedStyle(parent);
+              if (styles.color.indexOf('rgba') === -1 || !styles.color.match(/,\s*0\)/)) {
+                if (color == null) {
+                  color = styles.color;
+                }
+              }
+              if (styles['background-color'].indexOf('rgba') === -1 || !styles['background-color'].match(/,\s*0\)/)) {
+                if (bg == null) {
+                  bg = styles['background-color'];
+                }
+              }
+            }
+            parent = parent.parentNode;
+          }
+          iframe = Player(play.id + '-player', play.getAttribute('data-src'), play.getAttribute('data-width'), play.getAttribute('data-height'), rgb2hex(color), rgb2hex(bg));
+          target.appendChild(iframe);
+          Player.reveal(iframe);
+        }
+        e.preventDefault();
+        break;
+      }
+    }
+    results.push(target = target.parentNode);
+  }
+  return results;
+});
+
+rgb2hex = function(rgb) {
+  rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+  if (rgb && rgb.length === 4) {
+    return ("0" + parseInt(rgb[1], 10).toString(16)).slice(-2) + ("0" + parseInt(rgb[2], 10).toString(16)).slice(-2) + ("0" + parseInt(rgb[3], 10).toString(16)).slice(-2);
+  }
+};
+
+window.exports = window.Player = Player;
+
+
+},{}],9:[function(require,module,exports){
 module.exports = {
   reflow: function(container) {
     var counter, heights, hidden, hole, holed, holes, i, id, ids, index, j, k, l, last, layout, layouts, len, len1, len2, len3, m, mutations, name, node, ref, ref1, ref2, stack, stacks;
@@ -1880,7 +2102,7 @@ module.exports = function(callback) {
   } else {
     protocol = '';
   }
-  url = protocol + "//cdn.thegrid.io/gss/gss-document/1.2.4/gss.document.parser.js";
+  url = protocol + "//cdn.thegrid.io/gss/gss-document/1.2.8/gss.document.parser.js";
   if (location.toString().indexOf('//localhost:8080') > -1) {
     return module.exports.load(protocol + "//localhost:8080/node_modules/gss-document/dist/gss.document.parser.js", callback, function() {
       return module.exports.load(url, callback);
